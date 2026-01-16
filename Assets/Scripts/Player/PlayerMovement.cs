@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator bodyAnimator;
     [SerializeField] private PlayerInputs playerInputs;
 
-    [Header("Debug Settings")]
-    [SerializeField] private bool isViewDebug = false;
-
     private Vector2 _movementInput;
     private bool _isMoving;
     private Vector2 _lookDirection;
