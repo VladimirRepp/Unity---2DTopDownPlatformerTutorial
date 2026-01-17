@@ -8,6 +8,9 @@ public class DamageableObject : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private GameObject hitEffect;
 
+    [Header("Effect Settings")]
+    [SerializeField] private PerlinShaker perlinShaker;
+
     [Header("Destroy Settings")]
     [SerializeField] private bool isDestroyAfterDeath = false;
     [SerializeField] private float destroyDelay = 2f;
@@ -43,6 +46,11 @@ public class DamageableObject : MonoBehaviour, IDamageable
             GameObject effect = Instantiate(hitEffect, hitPoint, Quaternion.LookRotation(hitNormal));
             effect.transform.SetParent(transform);
             //Destroy(effect, 2f);
+        }
+
+        if (perlinShaker != null)
+        {
+            perlinShaker.Shake();
         }
 
         if (_currentHealth <= 0)
